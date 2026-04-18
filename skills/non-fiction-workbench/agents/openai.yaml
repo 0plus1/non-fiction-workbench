@@ -1,0 +1,4 @@
+interface:
+  display_name: "Non-Fiction Workbench"
+  short_description: "Draft, rewrite, and critique long-form non-fiction"
+  default_prompt: "Use $non-fiction-workbench to draft, rewrite, or critique this non-fiction piece against the brief, sources, and style files."

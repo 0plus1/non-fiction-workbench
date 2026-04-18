@@ -1,0 +1,4 @@
+interface:
+  display_name: "Anti-Slop"
+  short_description: "Detect and remove common AI prose tells"
+  default_prompt: "Use $anti-slop to scan this draft for AI prose tells and revise it conservatively without changing factual meaning."
