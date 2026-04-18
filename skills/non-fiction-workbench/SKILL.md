@@ -1,7 +1,7 @@
 ---
 name: non-fiction-workbench
-description: Brief-aware drafting, rewriting, and critique for long-form non-fiction organized around draft files plus brief, research, and style folders. Use when working on an essay, article, chapter, or newsletter and needing to preserve thesis, evidence, structure, and voice.
-argument-hint: <write|rewrite|critique> <draft-file>
+description: Brief-aware drafting, rewriting, and critique for long-form non-fiction organized around draft files plus brief, research, and style folders. Use when working on an essay, article, chapter, newsletter, or full manuscript and needing to preserve thesis, evidence, structure, and voice.
+argument-hint: <write|rewrite|critique|global-critique|global-rewrite> <draft-file-or-drafts-dir>
 disable-model-invocation: true
 ---
 
@@ -10,10 +10,10 @@ Treat the human as the author. Your job is to reduce drift, preserve factual int
 Parse the invocation arguments like this:
 
 - Mode: `$0`
-- Target draft file: `$1`
+- Target draft file or drafts directory: `$1`
 
 If either is missing, ask one short clarifying question and stop.
-If the mode is not `write`, `rewrite`, or `critique`, explain the valid modes briefly and stop.
+If the mode is not `write`, `rewrite`, `critique`, `global-critique`, or `global-rewrite`, explain the valid modes briefly and stop.
 
 ## Workflow
 
@@ -34,7 +34,8 @@ If the mode is not `write`, `rewrite`, or `critique`, explain the valid modes br
 5. Read only the research notes and excerpts that are clearly relevant to the claims in the target draft.
 6. Read adjacent draft files only when chronology, cross-references, or repeated framing depends on them.
 7. Use the reference guide at `references/project-shape.md` when the project layout needs interpretation.
-8. Work from the text and sources that exist. Do not invent sourcing, examples, quotations, numbers, or certainty.
+8. If the target is a directory or the mode is manuscript-level, read the draft files in natural order and treat them as one continuous work.
+9. Work from the text and sources that exist. Do not invent sourcing, examples, quotations, numbers, or certainty.
 
 ## Global Rules
 
@@ -44,6 +45,7 @@ If the mode is not `write`, `rewrite`, or `critique`, explain the valid modes br
 - When evidence is thin, reduce overclaiming instead of papering over the gap.
 - Prefer specific, direct prose over generic explanation.
 - Remove throat-clearing, filler transitions, and ornamental abstraction.
+- Avoid rhetorical self-repetition across a manuscript. Patterns such as `not X but Y`, `this is not ... it is ...`, or repeated `what matters is ...` can work once but weaken trust when they recur.
 - Keep the reader's trust in view. Precision beats flourish.
 - Prefer the smallest amount of research lookup needed to do the job well.
 - Keep output aligned with the mode requested.
@@ -97,3 +99,34 @@ Output headings:
 - `What is weak or overstated`
 - `Where support is missing or thin`
 - `What to strengthen next`
+
+## Mode: `global-critique`
+
+Use this mode for manuscript-level editorial feedback across a full draft directory.
+
+- Read the draft files in order and evaluate the work as one argument.
+- Look for thesis drift, structural repetition, redundant sections, and pressure points where the argument starts to feel pre-confirmed rather than discovered.
+- Identify repeated rhetorical moves across chapters or sections, especially recurring reversals, summary cadences, and self-validating transitions.
+- Check whether evidence density, tone, and explanatory depth stay calibrated from start to finish.
+- Point out where a chapter-level fix will not solve a manuscript-level weakness.
+
+Output headings:
+
+- `Manuscript strengths`
+- `Recurring weaknesses`
+- `Where the argument repeats or hardens too early`
+- `Structural revisions to make next`
+
+## Mode: `global-rewrite`
+
+Use this mode to revise a full draft directory while preserving thesis, evidence, and overall architecture.
+
+- Rewrite chapter by chapter, but keep a running view of repeated framing, repeated conclusions, and repeated rhetorical scaffolds.
+- Remove cross-manuscript habits that make the prose feel templated.
+- Preserve terminology unless inconsistency itself is the problem.
+- Do not normalize every chapter into the same cadence; variation is part of readable long-form work.
+- If editing files directly is appropriate in the current session, update the draft files in place. Otherwise return the revised manuscript in a clearly segmented form.
+
+Output:
+
+- Revised manuscript only, unless the user explicitly asks for notes.

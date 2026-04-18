@@ -1,7 +1,7 @@
 ---
 name: anti-slop
-description: Detect and remove common LLM prose tells in essays, articles, chapters, newsletters, and README-style non-fiction. Use when a draft feels generic, over-signposted, inflated, or suspiciously AI-shaped and needs conservative cleanup without changing factual meaning.
-argument-hint: <scan|revise> <draft-file>
+description: Detect and remove common LLM prose tells in essays, articles, chapters, newsletters, and README-style non-fiction. Use when a draft or full manuscript feels generic, over-signposted, inflated, or suspiciously AI-shaped and needs conservative cleanup without changing factual meaning.
+argument-hint: <scan|revise|global-scan|global-revise> <draft-file-or-drafts-dir>
 disable-model-invocation: true
 ---
 
@@ -10,10 +10,10 @@ Treat the human as the author. Your job is to identify clear AI-style rhetoric a
 Parse the invocation arguments like this:
 
 - Mode: `$0`
-- Target draft file: `$1`
+- Target draft file or drafts directory: `$1`
 
 If either is missing, ask one short clarifying question and stop.
-If the mode is not `scan` or `revise`, explain the valid modes briefly and stop.
+If the mode is not `scan`, `revise`, `global-scan`, or `global-revise`, explain the valid modes briefly and stop.
 
 ## Workflow
 
@@ -22,7 +22,8 @@ If the mode is not `scan` or `revise`, explain the valid modes briefly and stop.
 3. Scan for repeated or high-confidence patterns. One isolated instance may be fine; clusters matter more than single uses.
 4. Distinguish sentence-level tells from document-level repetition.
 5. Preserve facts, argument, citations, and intended audience throughout.
-6. Prefer small local edits over wholesale rewrites unless the draft is saturated with the same pattern.
+6. If the target is a directory or the mode is manuscript-level, read the draft files in order and look for recurrence across the full work.
+7. Prefer small local edits over wholesale rewrites unless the draft is saturated with the same pattern.
 
 ## Global Rules
 
@@ -64,3 +65,32 @@ Use this mode when the user wants the prose cleaned directly.
 Output:
 
 - Revised text only, unless the user explicitly asks for notes.
+
+## Mode: `global-scan`
+
+Use this mode when the user wants a manuscript-level slop diagnosis.
+
+- Read the full draft directory in order.
+- Identify repeated rhetorical scaffolds that become visible only across long work.
+- Pay special attention to self-repetition such as recurring `not X but Y`, `this is not ... it is ...`, or `what matters is ...` turns that make the argument feel pre-confirmed.
+- Note whether the manuscript reuses the same paragraph arc, same conclusion rhythm, or same explanatory stance across sections.
+
+Output headings:
+
+- `Recurring sentence-level tells`
+- `Manuscript-scale repetition`
+- `Highest-value cleanup passes`
+
+## Mode: `global-revise`
+
+Use this mode when the user wants slop removed across a full draft directory.
+
+- Revise the manuscript in order, keeping a running list of repeated tells already seen.
+- Remove repeated rhetorical templates, not just their loudest individual example.
+- Vary sentence openings, transitions, and paragraph endings when repetition is the problem.
+- Keep chapter identity intact; do not force every section into the same stripped cadence.
+- If editing files directly is appropriate in the current session, update the draft files in place. Otherwise return the revised manuscript in a clearly segmented form.
+
+Output:
+
+- Revised manuscript only, unless the user explicitly asks for notes.

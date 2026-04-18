@@ -61,6 +61,8 @@ Invoke the core skill manually:
 /non-fiction-workbench write drafts/article.md
 /non-fiction-workbench rewrite drafts/article.md
 /non-fiction-workbench critique drafts/article.md
+/non-fiction-workbench global-critique drafts/
+/non-fiction-workbench global-rewrite drafts/
 ```
 
 Invoke the anti-slop skill manually:
@@ -68,6 +70,8 @@ Invoke the anti-slop skill manually:
 ```text
 /anti-slop scan drafts/article.md
 /anti-slop revise drafts/article.md
+/anti-slop global-scan drafts/
+/anti-slop global-revise drafts/
 ```
 
 ## Modes
@@ -77,11 +81,15 @@ Invoke the anti-slop skill manually:
 - `write`: draft or expand a non-fiction piece from the brief, outline, and source material
 - `rewrite`: improve an existing draft while preserving thesis, facts, and structure
 - `critique`: return editorial feedback on argument, evidence, structure, and prose
+- `global-critique`: critique a whole draft directory as one manuscript
+- `global-rewrite`: rewrite a whole draft directory while preserving argument and evidence
 
 `anti-slop`
 
 - `scan`: flag clear AI-style rhetoric and document-level repetition
 - `revise`: rewrite to remove AI tells while preserving factual content and argument
+- `global-scan`: scan a full draft directory for repeated AI-style patterns across the manuscript
+- `global-revise`: remove slop across a full draft directory while preserving meaning
 
 ## Expected Project Shape
 
@@ -107,7 +115,7 @@ your-book-or-essay/
     └── article-x.md
 ```
 
-The core skill reads the target draft first, then consults the relevant brief, style, and source files. The anti-slop skill reads the target draft and applies a conservative rule set for common LLM prose patterns.
+The core skill reads the target draft first, then consults the relevant brief, style, and source files. For manuscript-level work, it can read an entire `drafts/` directory in order. The anti-slop skill reads the target draft and applies a conservative rule set for common LLM prose patterns, including repeated rhetorical scaffolds that become obvious only at manuscript scale.
 
 ## How They Behave
 
