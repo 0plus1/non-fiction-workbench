@@ -16,7 +16,7 @@ AI-assisted non-fiction usually fails in predictable ways:
 
 This repo gives agents a tighter workflow for essays, articles, reported features, newsletters, and book chapters. It does not replace authorship or reporting. It gives the model a disciplined way to read the draft, inspect the brief and source material, and revise without hallucinating or padding.
 
-The anti-slop skill is informed by common LLM prose-tell catalogs, including the public taxonomy at [tropes.fyi](https://tropes.fyi/tropes-md), then distilled into rewrite-oriented rules for actual editorial use.
+The anti-slop skill is informed by common LLM prose-tell catalogs, including the public taxonomy at [tropes.fyi](https://tropes.fyi/tropes-md), then distilled into rewrite-oriented rules for actual editorial use. It also includes a stricter parity checklist for detector-style passes, based on the rule inventory used in [Slop Cop](https://github.com/awnist/slop-cop).
 
 ## What's Included
 

@@ -98,3 +98,65 @@ When several patterns appear together, prioritize fixes in this order:
 3. Cut filler transitions, summary, and teacher-mode framing.
 4. Replace inflated diction with concrete words.
 5. Break document-level repetition by compressing or deleting redundant paragraphs.
+
+## Slop Cop parity checklist
+
+Use this checklist as a second-pass audit when the prose still feels suspiciously AI-shaped after an initial cleanup. These rule IDs come from the detector app and are worth checking explicitly because they are easy to miss in a looser editorial pass.
+
+### Lexical and opener checks
+
+- `overused-intensifiers`: words such as `crucial`, `vital`, `robust`, `nuanced`, `unprecedented`.
+  Rewrite move: delete or prove the intensity.
+- `almost-hedge`: phrases such as `almost always`, `almost never`, `almost certainly`.
+  Rewrite move: commit to the claim or use a precise qualifier like `usually`.
+- `era-opener`: `In an era of...`, `In a world where...`.
+  Rewrite move: delete the opener and start at the point.
+- `broader-implications`: `broader implications`, `wider implications`.
+  Rewrite move: name the actual implication or cut the phrase.
+- `important-to-note`: `it is important to note`, `it's worth noting`, `it should be noted`.
+  Rewrite move: delete the preamble and say the thing.
+- `connector-addiction`: paragraph-openers such as `Furthermore`, `Moreover`, `Additionally`, `However`, `That said`.
+  Rewrite move: let the paragraph connect through content, not connector words.
+- `sycophantic-frame`: `Great question`, `This is fascinating`, or other flattering setup.
+  Rewrite move: delete it and start with content.
+
+### Sentence-structure checks
+
+- `colon-elaboration`: a short clause followed by a colon and an overlong explanation.
+  Rewrite move: merge into one sentence or split into two normal ones.
+- `staccato-burst`: several very short sentences in the same rhythm.
+  Rewrite move: vary cadence by combining or expanding.
+- `parenthetical-qualifier`: `(of course)`, `(to be fair)`, `(admittedly)` style qualifiers.
+  Rewrite move: integrate if essential, delete otherwise.
+- `unnecessary-contrast`: `whereas`, `as opposed to`, `unlike`, `in contrast to` when the contrast adds nothing.
+  Rewrite move: state the claim directly.
+- `listicle-instinct`: magic-number lists with exactly 3, 5, 7, or 10 items.
+  Rewrite move: use the natural number of items or rewrite as prose.
+- `balanced-take`: a point immediately softened into nothing by reflexive concession.
+  Rewrite move: state the argument cleanly, then address real counterarguments separately.
+- `unnecessary-elaboration`: the sentence makes its point, then keeps restating it.
+  Rewrite move: stop when the sentence is done.
+- `pivot-paragraph`: a one-sentence paragraph that does no work except transition.
+  Rewrite move: delete it or absorb it into neighboring prose.
+
+### Paragraph and formatting checks
+
+- `metaphor-crutch`: tired metaphors such as `double-edged sword`, `tip of the iceberg`, `north star`, `game-changer`.
+  Rewrite move: use plain language or a specific image.
+- `dramatic-fragment`: a standalone paragraph with four words or fewer used for fake emphasis.
+  Rewrite move: absorb it into surrounding prose.
+- `bold-first-bullets`: markdown bullets that begin with a bolded label.
+  Rewrite move: write the bullet plainly or turn it into prose.
+- `unicode-arrows`: the `->` or `→` style arrow used decoratively in prose.
+  Rewrite move: write out the relationship directly.
+
+### Document-scale checks
+
+- `historical-analogy`: stacked references to famous companies, eras, or revolutions used as borrowed authority.
+  Rewrite move: keep one developed analogy or remove them.
+- `dead-metaphor`: the same metaphor repeated throughout the piece.
+  Rewrite move: keep the best use and strip the rest.
+- `one-point-dilution`: the same thesis restated across multiple paragraphs.
+  Rewrite move: cut the redundant restatement.
+- `fractal-summaries`: meta-commentary that previews or recaps instead of advancing.
+  Rewrite move: delete the preview/recap and deliver the content.
