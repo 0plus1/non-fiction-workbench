@@ -78,6 +78,8 @@ This rule set is adapted for editorial use from common AI-writing-tell lists, in
   Rewrite move: compress repeated claims and keep only the paragraph that advances the argument.
 - `content-duplication`: repeated paragraphs or near-repeated sections.
   Rewrite move: delete the duplicate and preserve the stronger version.
+- `rhetorical-self-repetition`: the manuscript repeatedly reaches for the same argumentative hinge, especially patterns like `not X but Y`, `this is not ... it is ...`, or `what matters is ...`.
+  Rewrite move: keep the strongest instance, then restate later points without the same reveal scaffold.
 - `signposted-conclusion`: `In conclusion`, `To sum up`, `In summary`.
   Rewrite move: conclude without announcing the conclusion.
 - `despite-its-challenges`: formulaic concession structure that acknowledges problems only to swat them away.
